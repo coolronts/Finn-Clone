@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAEA,cAAc,CACd,oBAAoB,CAIpB,mBAAmB","file":"app.cbfb96e8.css","sourceRoot":"..\\src","sourcesContent":["/* purgecss start ignore */\r\n\r\n@tailwind base;\r\n@tailwind components;\r\n\r\n/* purgecss end ignore */\r\n\r\n@tailwind utilities;"]}
