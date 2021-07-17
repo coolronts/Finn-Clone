@@ -1,5 +1,5 @@
 import React,{useContext, useState, useEffect} from 'react';
-import Header from "#components/Header";
+import Header from "#components/Shared/Header";
 import ProductMain from "#components/ProductPage/ProductMain";
 import Modal from "#utils/Modal";
 import { ModalContext } from "#context/ModalContext";

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { ModalContext } from "#context/ModalContext";
-import Header from '#components/Header';
+import Header from '#components/Shared/Header';
 import Highlight from '#components/Home/Highlight';
 import Choice from '#components/Home/Choice';
 import List from '#components/Shared/List';

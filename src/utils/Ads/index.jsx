@@ -41,7 +41,6 @@ const Ads = () => {
         </div>
         <p className={`${styles.extendedText} ${isExtended ? 'show':'hidden'}`}>Ved å kjøpe brukt i stedet for nytt, forlenger du varens livsløp og sparer utslipp forbundet med produksjon av en ny vare. <p>Les mer i <span className="text-blue-600">bruktmarkedsrapporten </span> </p>.</p>
       </div>
-      
       <div className={styles.blueTextsContainer}>
         <p className={styles.blueText}>Få hjelp til frakt</p>
         <p className={styles.blueText}>Pris på lån</p>

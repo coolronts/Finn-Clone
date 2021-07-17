@@ -35,7 +35,7 @@
     "alias": {
         "#components": "./src/components",
         "#utils": "./src/utils",
-        "#context": "./src/Context",
+        "#context": "./src/context",
         "#assets": "./src/assets",
         "#pages": "./src/pages"
     }
