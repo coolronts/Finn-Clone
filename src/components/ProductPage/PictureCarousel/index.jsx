@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import dotenv from "dotenv";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Navigation  } from 'swiper/core';
+
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css"
 import "swiper/components/navigation/navigation.min.css"
@@ -8,21 +12,44 @@ import "./swipeStyle.css";
 
 SwiperCore.use([Pagination, Navigation,]);
 
-const PictureCarousel = () => {
+const PictureCarousel = ({ details }) => {
+  let link = "https://cdn.contentful.com/spaces/" + process.env.CONTENTFUL_SPACE_ID + "/environments/master/assets?access_token=" + process.env.CONTENTFUL_API_TOKEN
+  
+  const [imageUrlList, setImageUrlList] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios.get(link)
+      .then((response) => {
+        getImagesUrl(response.data.items)
+      })
+  }, [details])
+  
+  function getImagesUrl(allAssets) {
+    let imageUrlArray = []
+    details.images.map(image => {
+      allAssets.map((asset) => {
+        if (image.sys.id == asset.sys.id) {
+          imageUrlArray.push({
+            link: "https:"+asset.fields.file.url,
+            imageName: asset.fields.title
+          })
+        }
+      })
+    })
+    setImageUrlList(imageUrlArray)
+    setLoading(false)
+  }
   return (
-    <Swiper pagination={{"type": "fraction"}} navigation={true} className="swiper-navigation-black">
-      <SwiperSlide>
-        <img style={{"height":400}}  src="https://picsum.photos/800/600"/>
-      </SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
-      <SwiperSlide>Slide 5</SwiperSlide>
-      <SwiperSlide>Slide 6</SwiperSlide>
-      <SwiperSlide>Slide 7</SwiperSlide>
-      <SwiperSlide>Slide 8</SwiperSlide>
-      <SwiperSlide>Slide 9</SwiperSlide>
-    </Swiper>
+    <>    
+      {(!loading && imageUrlList.length > 0) &&
+        <Swiper pagination={{"type": "fraction"}} navigation={true} >
+          {imageUrlList.map((image, index) =>{return (
+            <SwiperSlide key={index}> <img style={{ "height": 600 }} src={image.link} alt="Image" /> </SwiperSlide>
+          )})}  
+        </Swiper>
+      }
+    </>
   )
 }
 

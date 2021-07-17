@@ -31,7 +31,7 @@ const ProductMain = ({itemDetails}) => {
   return (
     <div className={styles.main}>
       <div className={styles.pictureCarousel} >
-        <PictureCarousel/>
+        <PictureCarousel details={itemDetails}/>
       </div>
       <div className={styles.coloumns}>
         <div className={styles.coloumn_1}>

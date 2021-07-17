@@ -12,7 +12,7 @@ SwiperCore.use([Pagination, Navigation, Scrollbar, Mousewheel]);
 
 const SmallCarousel = () => {
   return (
-    <Swiper scrollbar={{ draggable: true }} direction={'horizontal'} mousewheel={true}  spaceBetween={20} slidesPerView={3} navigation={true} pagination={{ clickable: true }} onSwiper={(swiper) => console.log(swiper)} className="swiper-navigation-black swiper-scrollbar swiper-container">
+    <Swiper scrollbar={{ draggable: true }} direction={'horizontal'} mousewheel={true}  spaceBetween={20} slidesPerView={3} navigation={true} pagination={{ clickable: true }}>
       <SwiperSlide >  <SmallCard /> </SwiperSlide>
       <SwiperSlide >  <SmallCard /> </SwiperSlide>
       <SwiperSlide >  <SmallCard /> </SwiperSlide>
