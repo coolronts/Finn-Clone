@@ -1,21 +1,23 @@
-import React, { useContext }  from 'react';
+import React, { useContext } from 'react';
+import { ModalContext } from "#context/ModalContext";
 import Header from '#components/Header';
 import Highlight from '#components/Home/Highlight';
-import SearchBar from '#utils/SearchBar';
 import Choice from '#components/Home/Choice';
 import List from '#components/Shared/List';
+import SearchBar from '#utils/SearchBar';
 import Modal from "#utils/Modal";
-import { ModalContext } from "#context/ModalContext";
 
 const Home = () => {
-  const listType = {
-    name: "general"
+  const imgLink="https://static.finncdn.no/_c/travel-promoboard/reise-desktop-bgimage-feriehus.x1.jpg"
+  const listType = {name: "general"}
+  const { isModal } = useContext(ModalContext)
+  const styles = {
+    main: "bg-white",
+    image: "absolute bg-cover bg-center h-96",
   }
-  const {isModal} = useContext(ModalContext)
-
   return (
-    <div>
-      <img className="absolute bg-cover bg-center h-96" src="https://static.finncdn.no/_c/travel-promoboard/reise-desktop-bgimage-feriehus.x1.jpg"/>
+    <div className={styles.main}>
+      <img className={styles.image} src={imgLink}/>
       <Header />
       <Highlight />
       <SearchBar />

@@ -4,6 +4,8 @@ import { BiUserCircle } from "react-icons/bi"
 import downArrowIcon from "#assets/downarrow.png"
 
 const Ads = () => {
+  const [isExtended, setIsExtended] = useState(false)
+
   const styles = {
     main: "bg-blue-50 rounded-md px-1 flex py-4 items-center",
     userIcon: "text-5xl",
@@ -22,8 +24,6 @@ const Ads = () => {
     blueTextsContainer: "text-blue-600 text-lg mt-4",
     blueText: "font-thin hover:underline cursor-pointer"    
   }
-
-  const [isExtended, setIsExtended] = useState(false)
   return(
     <>
       <div className={styles.main}>
@@ -39,7 +39,7 @@ const Ads = () => {
           <p className={styles.greenAdText}>Denne varren sparer CO2 tilsvarende production av <p className={styles.greenAdSecondaryText}>95nye plastposer</p> </p>
           <img src={downArrowIcon} onClick={() => setIsExtended(!isExtended)} className={`${styles.downArrowIcon} ${isExtended ? styles.isExtendedDownArrowIcon:''}`} />
         </div>
-        <p className={`${styles.extendedText} ${isExtended ? 'show':'hidden'} `}>Ved å kjøpe brukt i stedet for nytt, forlenger du varens livsløp og sparer utslipp forbundet med produksjon av en ny vare. <p>Les mer i <span className="text-blue-600">bruktmarkedsrapporten </span> </p>.</p>
+        <p className={`${styles.extendedText} ${isExtended ? 'show':'hidden'}`}>Ved å kjøpe brukt i stedet for nytt, forlenger du varens livsløp og sparer utslipp forbundet med produksjon av en ny vare. <p>Les mer i <span className="text-blue-600">bruktmarkedsrapporten </span> </p>.</p>
       </div>
       
       <div className={styles.blueTextsContainer}>
