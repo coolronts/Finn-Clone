@@ -12,10 +12,10 @@ import { FaFacebookSquare, FaTwitter } from "react-icons/fa";
 
 const ProductMain = () => {
   const styles = {
-    main: "mt-24 px-36 h-full pb-12",
-    pictureCarousel: "px-24 mb-6",
-    coloumns: "flex flex-row justify-between",
-    coloumn_1: "h-2/3 w-3/5 ",
+    main: "mt-24 h-full pb-12",
+    pictureCarousel: "px-36 mb-6",
+    coloumns: "flex flex-row justify-between px-36",
+    coloumn_1: "h-2/3 w-3/5",
     coloumn_2:"w-1/3",
     favoriteContainer: "flex mt-4",
     messageButton: "bg-white hover:bg-blue-50 border-2 hover:border-blue-700 text-blue-700 text-lg font-medium rounded-lg py-1 px-4",
@@ -52,7 +52,7 @@ const ProductMain = () => {
           <Ads className="sticky top-0 "/>
         </div>
       </div>
-      <div className="mt-6">
+      <div className="mt-6 px-36">
         <FinnKode />
       </div>
       <div className="mt-12">

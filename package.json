@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "parcel src/index.html",
+        "start": "parcel index.html",
         "build": "parcel build src/index.html",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -36,6 +36,7 @@
         "#components": "./src/components",
         "#utils": "./src/utils",
         "#context": "./src/Context",
-        "#assets": "./src/assets"
+        "#assets": "./src/assets",
+        "#pages": "./src/pages"
     }
 }

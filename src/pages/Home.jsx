@@ -18,7 +18,7 @@ const Home = () => {
       <SearchBar />
       <Choice />
       <List />
-      {isModal && <Modal/>}
+      {isModal && <Modal />}
     </div>
   )
 }

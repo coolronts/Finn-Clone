@@ -1,4 +1,5 @@
-import React,{useContext,useState, useEffect} from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import { HiOutlineHeart } from 'react-icons/hi';
 import { AiOutlineDash } from 'react-icons/ai';
 import { ModalContext } from "../../Context/ModalContext";
@@ -6,6 +7,10 @@ import { ModalContext } from "../../Context/ModalContext";
 const Card = ({ detail, allImages}) => {
   const { setIsModal } = useContext(ModalContext);
   const [mainPictureLink, setMainPictureLink] = useState('')
+  function jumpToProductPage(){
+    <Redirect push to="/product" />
+
+  }
 
   useEffect(() => {
     const pictureId = detail.fields.images[0].sys.id;
@@ -25,11 +30,11 @@ const Card = ({ detail, allImages}) => {
     textContainer: "flex justify-between mt-16",
     city:"text-gray-600 text-xs",
     textIcon: "text-gray-600 text-2xl",
-    title:"text-lg font-semibold"  
+    title:"text-lg font-semibold overflow-ellipsis overflow-hidden h-14 "  
   }
 
   return (
-    <div class={styles.main}>
+    <div onClick={()=>jumpToProductPage()} class={styles.main}>
       <div className={styles.imageContainer}>
         <img src={mainPictureLink} alt="" className={styles.image} style={{"height": 370}}/>
         <div className={styles.iconContainer} onClick={()=>setIsModal(true)} />
