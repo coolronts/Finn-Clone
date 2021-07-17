@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 import { HiOutlineHeart } from 'react-icons/hi';
 import { AiOutlineDash } from 'react-icons/ai';
 import { ModalContext } from "#context/ModalContext";
@@ -30,21 +30,23 @@ const Card = ({ detail, allImages }) => {
   }
 
   return (
-    <Link to={"/product/" + detail.sys.id}>
-      <div class={styles.main}>
-        <div className={styles.imageContainer}>
-          <img src={mainPictureLink} alt="" className={styles.image} style={{"height": 370}}/>
-          <div className={styles.iconContainer} onClick={()=>setIsModal(true)} />
-            <HiOutlineHeart className={styles.icon} />
-            <p className={styles.price}>10000 Kr</p>
+    <BrowserRouter forceRefresh={true}>    
+      <Link to={"/product/" + detail.sys.id}>
+        <div class={styles.main}>
+          <div className={styles.imageContainer}>
+            <img src={mainPictureLink} alt="" className={styles.image} style={{"height": 370}}/>
+            <div className={styles.iconContainer} onClick={()=>setIsModal(true)} />
+              <HiOutlineHeart className={styles.icon} />
+              <p className={styles.price}>10000 Kr</p>
+          </div>
+          <div className={styles.textContainer}>
+            <p class={styles.city}>{detail.fields.place}</p>
+            <AiOutlineDash className={styles.textIcon}/>
+          </div>
+          <p className={styles.title}>{detail.fields.title}</p>
         </div>
-        <div className={styles.textContainer}>
-          <p class={styles.city}>{detail.fields.place}</p>
-          <AiOutlineDash className={styles.textIcon}/>
-        </div>
-        <p className={styles.title}>{detail.fields.title}</p>
-      </div>
-    </Link>
+      </Link>
+    </BrowserRouter>
   )
 }
 
