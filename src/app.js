@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { ModalProvider } from "#context/ModalContext";
 import ProductPage from "#pages/ProductPage";
 import Home from "#pages/Home";
@@ -10,12 +10,8 @@ const App = () => {
     <ModalProvider>
       <Router>
         <Switch>
-          <Route path="/product">
-            <ProductPage/>
-          </Route>
-          <Route path="/">
-            <Home/>
-          </Route>
+          <Route path="/product/:id" component={ProductPage} />
+          <Route path="/" component={Home} />
         </Switch>
       </Router>
     </ModalProvider>

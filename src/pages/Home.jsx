@@ -1,11 +1,11 @@
 import React, { useContext }  from 'react';
-import Header from '#components/Header'
-import Highlight from '#components/Home/Highlight'
-import SearchBar from '#utils/SearchBar'
-import Choice from '#components/Home/Choice'
-import List from '#components/Shared/List'
-import Modal from "#utils/Modal"
-import {ModalContext} from "#context/ModalContext"
+import Header from '#components/Header';
+import Highlight from '#components/Home/Highlight';
+import SearchBar from '#utils/SearchBar';
+import Choice from '#components/Home/Choice';
+import List from '#components/Shared/List';
+import Modal from "#utils/Modal";
+import { ModalContext } from "#context/ModalContext";
 
 const Home = () => {
   const {isModal} = useContext(ModalContext)

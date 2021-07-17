@@ -3,11 +3,12 @@ import Card from '#utils/Card'
 import axios from 'axios';
 import dotenv from "dotenv";
 
-let link = "https://cdn.contentful.com/spaces/" + process.env.CONTENTFUL_SPACE_ID + "/environments/master/entries?access_token=" + process.env.CONTENTFUL_API
+let link = "https://cdn.contentful.com/spaces/" + process.env.CONTENTFUL_SPACE_ID + "/environments/master/entries?access_token=" + process.env.CONTENTFUL_API_TOKEN
 
-const List = ({ isOpenModal }) => {
+const List = () => {
   var loadNumber = 0;
   const [items, setItems] = useState([])
+  const [loading,setLoading] = useState(true)
   const [imagesDetail, setImagesDetail] = useState([])
   const [element, setElement] = useState(null)
   const [sliceUpperLimit, setSliceUpperLimit] = useState(0)
@@ -25,6 +26,7 @@ const List = ({ isOpenModal }) => {
     .then(lists => {
       setItems(lists.data.items)
       setImagesDetail(lists.data.includes.Asset)
+      setLoading(false)
     })  
   }
 
@@ -47,14 +49,15 @@ const List = ({ isOpenModal }) => {
   return(
     <div className={styles.body}  ref={setElement}>
       <p className={styles.title}>Populære annonser <span className={styles.subtitle}>Hvorfor anbefaler vi disse annonsene?</span></p>
+      {!loading &&
       <div className=" flex flex-wrap py-16 justify-between" >
         {items.slice(0,sliceUpperLimit).map((item, index) =>
           <div className="h-64 w-80 mb-72" key={item.sys.id}>
             {((index + 1) % 3 == 0) && <div ref={setElement}/>}
-            <Card isOpenModal={isOpenModal} detail={item} allImages={imagesDetail} />
+            <Card detail={item} allImages={imagesDetail} />
           </div>
         )}
-      </div>
+      </div>}
     </div>
   )
 }

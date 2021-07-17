@@ -16,8 +16,8 @@ const Ads = () => {
     leafIcon: "text-3xl text-green-500 mr-2",
     greenAdText: "ml-2 w-4/5 text-left font-medium text-black rounded-lg py-3 text-base",
     greenAdSecondaryText: "text-xl",
-    downArrowIcon: "cursor-pointer w-8",
-    isExtendedDownArrowIcon:"transform rotate-180",
+    downArrowIcon: "transition duration-100 ease-in-out cursor-pointer w-6",
+    isExtendedDownArrowIcon:"transition duration-100 ease-in-out transform rotate-180",
     extendedText: "text-base text-left",
     blueTextsContainer: "text-blue-600 text-lg mt-4",
     blueText: "font-thin hover:underline cursor-pointer"    

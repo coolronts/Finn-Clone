@@ -3,8 +3,8 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import Geocode from "react-geocode";
 import dotenv from "dotenv";
 
-const Map = () => {
-  Geocode.setApiKey(process.env.GOOGLE_API);
+const Map = ({address}) => {
+  Geocode.setApiKey(process.env.GOOGLE_API_KEY);
   Geocode.setLanguage("en");
   Geocode.setRegion("no");
   Geocode.setLocationType("ROOFTOP");
@@ -12,7 +12,7 @@ const Map = () => {
   
   const [location, setLocation] = useState(null)
   useEffect(() => {
-    Geocode.fromAddress("Vardeveien 3C, 1182 Oslo").then(
+    Geocode.fromAddress(address).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
         setLocation({"lat":lat,"lng":lng});
@@ -26,8 +26,8 @@ const Map = () => {
 
   return (
     <>
-      <p className="text-gray-700 my-6 text-lg font-medium">Vardeveien 3C, 1182 Oslo</p>
-      <LoadScript googleMapsApiKey={process.env.GOOGLE_API}>
+      <p className="text-gray-700 my-6 text-lg font-medium"> {address} </p>
+      <LoadScript googleMapsApiKey={process.env.GOOGLE_API_KEY}>
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={location}
