@@ -1,7 +1,6 @@
+.parcel-cache
 node_modules
-.env
-dist
 .history
 .cache
-.parcel-cache
+.env
 dist
