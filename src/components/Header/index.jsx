@@ -26,7 +26,7 @@ const Header = () => {
               <div className={styles.logoName}>Mulighetenes marked</div>
             </div>
           </Link>
-          </BrowserRouter>
+        </BrowserRouter>
         <ul className={styles.menuContainer}>
           <li className={styles.li}><FaRegBell className={styles.icon} /> <span className={styles.menuName}>Varslinger</span> </li>
           <li className={styles.li}><FaPlus className={styles.icon} /> <span className={styles.menuName}>Ny anonse</span> </li>
