@@ -10,7 +10,7 @@ const App = () => {
     <ModalProvider>
       <Router>
         <Switch>
-          <Route exact path="/product/:id" component={ProductPage} />
+          <Route path="/product/:id" component={ProductPage} />
           <Route exact path="/" component={Home} />
         </Switch>
       </Router>
