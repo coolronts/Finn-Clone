@@ -8,6 +8,9 @@ import Modal from "#utils/Modal";
 import { ModalContext } from "#context/ModalContext";
 
 const Home = () => {
+  const listType = {
+    name: "general"
+  }
   const {isModal} = useContext(ModalContext)
 
   return (
@@ -17,7 +20,7 @@ const Home = () => {
       <Highlight />
       <SearchBar />
       <Choice />
-      <List />
+      <List listType={listType} />
       {isModal && <Modal />}
     </div>
   )

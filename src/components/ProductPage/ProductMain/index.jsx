@@ -12,7 +12,10 @@ import { FaFacebookSquare, FaTwitter } from "react-icons/fa";
 
 
 const ProductMain = ({itemDetails}) => {
-  
+  const listType = {
+    name: "recommendation",
+    place: itemDetails.place
+  }
   const styles = {
     main: "mt-24 h-full pb-12",
     pictureCarousel: "px-36 mb-6",
@@ -58,7 +61,7 @@ const ProductMain = ({itemDetails}) => {
         <FinnKode />
       </div>
       <div className="mt-12">
-        <List/>
+        <List listType={listType}/>
       </div>
     </div>
   )

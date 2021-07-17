@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 
 let link = "https://cdn.contentful.com/spaces/" + process.env.CONTENTFUL_SPACE_ID + "/environments/master/entries?access_token=" + process.env.CONTENTFUL_API_TOKEN
 
-const List = () => {
+const List = ({listType}) => {
   var loadNumber = 0;
   const [items, setItems] = useState([])
   const [loading,setLoading] = useState(true)
@@ -23,11 +23,18 @@ const List = () => {
  
   function getItems() {
     axios.get(link)
-    .then(lists => {
-      setItems(lists.data.items)
+      .then(lists => {
+      const refinedList = typeOfList(lists.data.items)
+      setItems(refinedList)
       setImagesDetail(lists.data.includes.Asset)
       setLoading(false)
     })  
+  }
+  
+  function typeOfList(rawList) {
+    if (listType.name == "recommendation") {
+      return rawList.filter(item => item.fields.place == listType.place)
+    }else {return rawList}
   }
 
   useEffect(() => {
@@ -51,7 +58,7 @@ const List = () => {
       <p className={styles.title}>Populære annonser <span className={styles.subtitle}>Hvorfor anbefaler vi disse annonsene?</span></p>
       {!loading &&
       <div className=" flex flex-wrap py-16 justify-between" >
-        {items.slice(0,sliceUpperLimit).map((item, index) =>
+        {items.slice(0, sliceUpperLimit).map((item, index) =>
           <div className="h-64 w-80 mb-72" key={item.sys.id}>
             {((index + 1) % 3 == 0) && <div ref={setElement}/>}
             <Card detail={item} allImages={imagesDetail} />
