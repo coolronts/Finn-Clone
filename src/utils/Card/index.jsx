@@ -20,6 +20,12 @@ const Card = ({ detail, allImages }) => {
     e.preventDefault()
     setIsClicked(!isClicked)
   }
+
+  function ModalActive(e) {
+    console.log("Hell")
+    e.preventDefault()
+    setIsModal(true)
+  }
   const styles = {
     main: "relative z-10 shadow-sm cursor-pointer flex flex-col bg-white rounded-lg w-full h-auto hover:bg-blue-50 p-2  ",
     imageContainer:"relative h-80 w-full",
@@ -40,7 +46,7 @@ const Card = ({ detail, allImages }) => {
       <div class={styles.main}>
         <div className={styles.imageContainer}>
           <img src={mainPictureLink} alt="" className={styles.image} style={{"height": 370}}/>
-          <div className={styles.iconContainer} onClick={()=>setIsModal(true)} />
+          <div className={styles.iconContainer} onClick={(e)=>ModalActive(e)} />
             <HiOutlineHeart className={styles.icon} />
             <p className={styles.price}>10000 Kr</p>
         </div>

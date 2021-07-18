@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import { CgFolder } from 'react-icons/cg';
-import { ModalContext } from "../../Context/ModalContext";
+import { ModalContext } from "#context/ModalContext";
 
 const Modal = () => {
   const styles = {
