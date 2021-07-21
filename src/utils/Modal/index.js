@@ -1,6 +1,6 @@
-import React, {useContext} from "react";
-import { CgFolder } from 'react-icons/cg';
-import { ModalContext } from "#context/ModalContext";
+import React, { useContext } from "react";
+import { CgFolder } from "react-icons/cg";
+import { ModalContext } from "context/ModalContext";
 
 const Modal = () => {
   const styles = {
@@ -10,17 +10,20 @@ const Modal = () => {
     primaryText: "mt-6 text-center",
     buttonContainer: "flex justify-around",
     primaryButton: "bg-blue-600 hover:bg-blue-700 text-center font-semibold px-2 py-3 rounded-lg mt-3 text-white mr-3",
-    secondaryButton: "bg-white hover:bg-blue-50 text-center font-semibold px-2 py-3 rounded-lg mt-3 text-blue-600"
-  }
-  const {setIsModal} = useContext(ModalContext)
+    secondaryButton: "bg-white hover:bg-blue-50 text-center font-semibold px-2 py-3 rounded-lg mt-3 text-blue-600",
+  };
+  const { setIsModal } = useContext(ModalContext);
   return (
-    <div className={styles.main}>
+    <div data-cy="Modal" className={styles.main}>
       <div className={styles.body}>
         <CgFolder className={styles.icon} />
-        <p className={styles.primaryText}>Logg inn for å legge annonsen i dine favorittlister. Da kan du lett finne de igjen senere, uansett hvor du er.</p>
+        <p className={styles.primaryText}>
+          Logg inn for å legge annonsen i dine favorittlister. Da kan du lett
+          finne de igjen senere, uansett hvor du er.
+        </p>
         <div className={styles.buttonContainer}>
           <button className={styles.primaryButton}> Logg Inn</button>
-          <button onClick={()=>setIsModal(false)}  className={styles.secondaryButton}> Ikke na</button>
+          <button data-cy="modalCancelButton" onClick={() => setIsModal(false)} className={styles.secondaryButton}>Ikke na</button>
         </div>
       </div>
     </div>

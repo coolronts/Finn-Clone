@@ -13,7 +13,7 @@ const SearchBar = () => {
   }
 
   return (
-    <div className={styles.main}>
+    <div data-cy="SearchBar" className={styles.main}>
       <div className={styles.container}>
         <div className={styles.inputContainer}>
           <input className={styles.input} type="search" placeholder="Sok etter IPhone eller fjordhest" />

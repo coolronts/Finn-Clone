@@ -2,19 +2,18 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { HiOutlineHeart } from 'react-icons/hi';
 import { AiOutlineDash } from 'react-icons/ai';
-import { ModalContext } from "#context/ModalContext";
+import { ModalContext } from "context/ModalContext";
 
 const Card = ({ detail, allImages }) => {
   const { setIsModal } = useContext(ModalContext);
   const [mainPictureLink, setMainPictureLink] = useState('');
   const [isClicked, setIsClicked] = useState(false);
-  
+
   useEffect(() => {
     const pictureId = detail.fields.images[0].sys.id;
-    allImages.map(image => {
-      if (image.sys.id == pictureId) {setMainPictureLink("https:" + image.fields.file.url)}
-    })
-  },[mainPictureLink])
+    allImages.filter(image =>image.sys.id === pictureId)
+      .map(image => setMainPictureLink("https:" + image.fields.file.url))
+  },[allImages, detail.fields.images])
   
   function popupActive(e) {
     e.preventDefault()
@@ -22,7 +21,6 @@ const Card = ({ detail, allImages }) => {
   }
 
   function ModalActive(e) {
-    console.log("Hell")
     e.preventDefault()
     setIsModal(true)
   }
@@ -43,17 +41,17 @@ const Card = ({ detail, allImages }) => {
 
   return (
     <Link to={"/product/" + detail.sys.id}>
-      <div class={styles.main}>
+      <div data-cy="Card" class={styles.main}>
         <div className={styles.imageContainer}>
-          <img src={mainPictureLink} alt="" className={styles.image} style={{"height": 370}}/>
-          <div className={styles.iconContainer} onClick={(e)=>ModalActive(e)} />
-            <HiOutlineHeart className={styles.icon} />
-            <p className={styles.price}>10000 Kr</p>
+          <img src={mainPictureLink} alt="CardMainPicture" className={styles.image} style={{"height": 370}}/>
+          <div data-cy="likeButtonContainer" className={styles.iconContainer} onClick={(e)=>ModalActive(e)} />
+          <HiOutlineHeart className={styles.icon} />
+          <p className={styles.price}>10000 Kr</p>
         </div>
-        <div className={styles.textContainer}>
+        <div data-cy="Card-textContainer" className={styles.textContainer}>
           <p class={styles.city}>{detail.fields.place}</p>
-          <AiOutlineDash onClick={(e)=>popupActive(e)} className={styles.textIcon} />
-          <p onClick={(e)=>popupActive(e)} className={`${styles.popupBody} ${isClicked ? 'show':'hidden'}`}>Fjern denne anbefalingen</p>
+          <AiOutlineDash data-cy="Dash" onClick={(e)=>popupActive(e)} className={styles.textIcon} />
+          <p data-cy="popUp" onClick={(e)=>popupActive(e)} className={`${styles.popupBody} ${isClicked ? 'show':'hidden'}`}>Fjern denne anbefalingen</p>
         </div>
         <p className={styles.title}>{detail.fields.title}</p>
       </div>

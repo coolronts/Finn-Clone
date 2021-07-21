@@ -1,7 +1,7 @@
 import React,{useState}  from 'react';
 import { FaLeaf } from "react-icons/fa"
 import { BiUserCircle } from "react-icons/bi"
-import downArrowIcon from "#assets/downarrow.png"
+import downArrowIcon from "assets/downarrow.png"
 
 const Ads = () => {
   const [isExtended, setIsExtended] = useState(false)
@@ -25,7 +25,7 @@ const Ads = () => {
     blueText: "font-thin hover:underline cursor-pointer"    
   }
   return(
-    <>
+    <div data-cy="Ads">
       <div className={styles.main}>
         <BiUserCircle className={styles.userIcon}/>
         <p className={styles.LogginText}>Du må være logget inn for å se profilen</p>
@@ -37,15 +37,15 @@ const Ads = () => {
         <div className={styles.mainGreenAd}>
           <FaLeaf className={styles.leafIcon}/>
           <p className={styles.greenAdText}>Denne varren sparer CO2 tilsvarende production av <p className={styles.greenAdSecondaryText}>95nye plastposer</p> </p>
-          <img src={downArrowIcon} onClick={() => setIsExtended(!isExtended)} className={`${styles.downArrowIcon} ${isExtended ? styles.isExtendedDownArrowIcon:''}`} />
+          <img alt="downArrow" src={downArrowIcon} onClick={() => setIsExtended(!isExtended)} className={`${styles.downArrowIcon} ${isExtended ? styles.isExtendedDownArrowIcon:''}`} />
         </div>
-        <p className={`${styles.extendedText} ${isExtended ? 'show':'hidden'}`}>Ved å kjøpe brukt i stedet for nytt, forlenger du varens livsløp og sparer utslipp forbundet med produksjon av en ny vare. <p>Les mer i <span className="text-blue-600">bruktmarkedsrapporten </span> </p>.</p>
+        <p data-cy="extendedText" className={`${styles.extendedText} ${isExtended ? 'show':'hidden'}`}>Ved å kjøpe brukt i stedet for nytt, forlenger du varens livsløp og sparer utslipp forbundet med produksjon av en ny vare. <p>Les mer i <span className="text-blue-600">bruktmarkedsrapporten </span> </p>.</p>
       </div>
       <div className={styles.blueTextsContainer}>
         <p className={styles.blueText}>Få hjelp til frakt</p>
         <p className={styles.blueText}>Pris på lån</p>
       </div>
-    </>
+    </div>
   )
 }
 

@@ -1,9 +1,7 @@
-import React,{useContext,useState, useEffect} from 'react';
+import React from 'react';
 import { BiWalk, BiBus } from 'react-icons/bi';
-import { ModalContext } from "../../Context/ModalContext";
 
-const SmallCard = ({ detail, allImages}) => {
-  const { setIsModal } = useContext(ModalContext);
+const SmallCard = () => {
   const styles = {
     main: "shadow-lg cursor-pointer flex flex-col bg-white rounded-lg w-full h-auto hover:bg-white px-4  py-6 ",
     imageContainer:"relative h-80 w-full",
@@ -19,7 +17,7 @@ const SmallCard = ({ detail, allImages}) => {
   }
 
   return (
-    <div class={styles.main}>
+    <div data-cy="smallCard" class={styles.main}>
       <p className="font-semibold text-sm  text-left text-gray-500">Kort gangavstand til offentlig transport</p>
       <div className="flex justify-between mt-2 text-xs text-gray-600 items-center">
         <p className="">Buss</p>
