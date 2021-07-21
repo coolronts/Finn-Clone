@@ -1,68 +1,56 @@
 {
-    "name": "finn-clone",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "dev": "parcel public/index.html",
-        "build": "parcel build public/index.html",
-        "watch": "parcel watch public/index.html",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [],
-    "author": "Zahid Ronty",
-    "license": "ISC",
-    "devDependencies": {
-        "@babel/cli": "^7.14.5",
-        "@babel/core": "^7.14.6",
-        "@babel/plugin-proposal-class-properties": "^7.14.5",
-        "@babel/preset-env": "^7.14.7",
-        "@babel/preset-react": "^7.14.5",
-        "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
-        "autoprefixer": "^9.8.6",
-        "parcel": "^2.0.0-beta.3.1",
-        "parcel-bundler": "^1.12.5",
-        "postcss": "^7.0.36",
-        "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.4"
-    },
+    "name": "finn",
+    "version": "0.1.0",
+    "private": false,
     "dependencies": {
-        "@contentful/app-sdk": "^3.38.0",
+        "@craco/craco": "^6.2.0",
         "@react-google-maps/api": "^2.2.0",
+        "@testing-library/jest-dom": "^5.14.1",
+        "@testing-library/react": "^11.2.7",
+        "@testing-library/user-event": "^12.8.3",
         "axios": "^0.21.1",
-        "babel-preset-env": "^1.7.0",
-        "babel-preset-react": "^6.24.1",
-        "contentful": "^8.4.2",
-        "enzyme": "^3.11.0",
-        "jest": "^27.0.6",
+        "dotenv": "^8.2.0",
+        "node-sass": "^6.0.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-geocode": "^0.2.3",
         "react-icons": "^4.2.0",
         "react-id-swiper": "^4.0.0",
         "react-router-dom": "^5.2.0",
-        "save-dev": "^0.0.1-security",
+        "react-scripts": "4.0.3",
+        "react-test-renderer": "^17.0.2",
         "swiper": "^6.7.5",
         "tailwindcss-filters": "^3.0.0"
     },
-    "alias": {
-        "#components": "./src/components",
-        "#utils": "./src/utils",
-        "#context": "./src/context",
-        "#assets": "./src/assets",
-        "#pages": "./src/pages"
+    "scripts": {
+        "start": "craco start",
+        "build": "craco build",
+        "test": "cypress open",
+        "eject": "react-scripts eject"
     },
-    "plugins": [
-        ["@babel/plugin-proposal-class-properties"]
-    ],
-    "presets": [
-        [
-            "@babel/preset-env",
-            {
-                "useBuiltIns": "entry"
-            }
-        ],
-        [
-            "@babel/preset-react"
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
         ]
-    ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "autoprefixer": "^9.8.6",
+        "cypress": "^7.7.0",
+        "cypress-react-selector": "^2.3.11",
+        "postcss": "^7.0.36",
+        "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.4"
+    }
 }
