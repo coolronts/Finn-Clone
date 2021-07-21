@@ -1,5 +1,5 @@
 import React from 'react';
-import SmallCard from '#utils/SmallCard';
+import SmallCard from 'utils/SmallCard';
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Navigation,Scrollbar,Mousewheel  } from 'swiper/core';
 import "swiper/swiper.min.css";
@@ -11,17 +11,12 @@ import "./swipeStyle.css";
 SwiperCore.use([Pagination, Navigation, Scrollbar, Mousewheel]);
 
 const SmallCarousel = () => {
+  const numberOfSlides = 10;
   return (
-    <Swiper scrollbar={{ draggable: true }} direction={'horizontal'} mousewheel={true}  spaceBetween={20} slidesPerView={3} navigation={true} pagination={{ clickable: true }}>
-      <SwiperSlide >  <SmallCard /> </SwiperSlide>
-      <SwiperSlide >  <SmallCard /> </SwiperSlide>
-      <SwiperSlide >  <SmallCard /> </SwiperSlide>
-      <SwiperSlide >  <SmallCard /> </SwiperSlide>
-      <SwiperSlide >  <SmallCard /> </SwiperSlide>
-      <SwiperSlide >  <SmallCard /> </SwiperSlide>
-      <SwiperSlide >  <SmallCard /> </SwiperSlide>
-      <SwiperSlide >  <SmallCard /> </SwiperSlide>
-      <SwiperSlide >  <SmallCard/> </SwiperSlide>      
+    <Swiper data-cy="smallCarousel" scrollbar={{ draggable: true }} direction={'horizontal'} mousewheel={true}  spaceBetween={20} slidesPerView={3} navigation={true} pagination={{ clickable: true }}>
+      {[...Array(numberOfSlides)].map((_, i) => 
+        <SwiperSlide >  <SmallCard /> </SwiperSlide>
+      )}      
     </Swiper>
   )
 }

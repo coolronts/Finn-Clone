@@ -35,31 +35,32 @@ const Highlight = () => {
     body: "flex text-white relative px-40 mt-6 justify-between",
     leftContainer: "flex flex-col justify-evenly",
     title: "text-3xl font-bold",
-    button: "bg-blue-600 text-center w-40 px-2 py-3 rounded ",
+    button: "bg-blue-600 hover:bg-blue-900 text-center w-40 px-2 py-3 rounded ",
     rightContainer:"flex flex-col justify-between h-full",
     adBox: "bg-white rounded-lg px-4 py-4 text-sm tracking-tighter font-semibold",
     adTitle: "text-black text-lg",
     pictureAdContainer: "grid grid-rows-2 grid-flow-col gap-4 cursor-pointer pt-5 ",
     adImage: "w-11 rounded mr-2",
-    adInfo:"flex flex-col justify-around text-xs mr-8",
+    adContainer:"text-black text-xs h-10 flex",
+    adInfo: "flex flex-col justify-around text-xs mr-8",
     subTitle: "text-gray-400",
   }
   return (
-    <div className={styles.body}>
-      <div className={styles.leftContainer}>
+    <div data-cy="Highlight" className={styles.body}>
+      <div data-cy="left-Container"  className={styles.leftContainer}>
         <p className={styles.title}>Norgesferien</p>
         <p>Smarte tips og inspirasjon til årets ferie i Norge.</p>
         <button className={styles.button}>Book norgesferien</button>
       </div>
 
-      <div className={styles.rightContainer}>
+      <div data-cy="right-Container" className={styles.rightContainer}>
         <div className={styles.adBox}>
           <p className={styles.adTitle}>Utforsk hytter i Norge</p>
           <div className={styles.pictureAdContainer}>
             {ads.map(ad => 
-              <div class=" text-black text-xs h-10 flex " key={ad.id.toString()}>
-                <img className={styles.adImage} src={ad.image} />
-                <div className={styles.adInfo}>
+              <div data-cy="ad" className={styles.adContainer} key={ad.id.toString()}>
+                <img data-cy="ad-image" className={styles.adImage} src={ad.image} alt="ad" />
+                <div data-cy="ad-info" className={styles.adInfo}>
                   <p> {ad.adName} </p>
                   <p className={styles.subTitle}>{ad.subTitle}  </p>
                 </div>

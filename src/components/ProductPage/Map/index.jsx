@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import Geocode from "react-geocode";
-import dotenv from "dotenv";
 
 const Map = ({address}) => {
-  Geocode.setApiKey(process.env.GOOGLE_API_KEY);
+  Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
   Geocode.setLanguage("en");
   Geocode.setRegion("no");
   Geocode.setLocationType("ROOFTOP");
@@ -20,14 +19,14 @@ const Map = ({address}) => {
         console.error(error);
       }
     );
-  },[])
+  },[address])
   
   const containerStyle = {height: '400px'};
 
   return (
-    <>
+    <div data-cy="Maps">
       <p className="text-gray-700 my-6 text-lg font-medium"> {address} </p>
-      <LoadScript googleMapsApiKey={process.env.GOOGLE_API_KEY}>
+      <LoadScript data-cy="MapLoad" googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY}>
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={location}
@@ -37,7 +36,7 @@ const Map = ({address}) => {
           <Marker position={location}/>
         </GoogleMap>
       </LoadScript>
-    </>
+    </div>
   )
 }
 

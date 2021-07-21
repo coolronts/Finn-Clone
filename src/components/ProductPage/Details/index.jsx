@@ -13,7 +13,7 @@ const Details = ({details}) => {
   }
 
   return (
-     <>
+     <div data-cy="Details">
       <p className={styles.title}>{details.title} </p>
       <p className={styles.place}> {details.place} </p>
       <p className={styles.rentText}>Månedsleie</p>
@@ -34,7 +34,7 @@ const Details = ({details}) => {
         <p className={styles.descriptionTitle}>Beskrivelse</p>
         <p className={styles.description}>{details.description}</p>
       </div>
-    </> 
+    </div> 
   )
 }
 

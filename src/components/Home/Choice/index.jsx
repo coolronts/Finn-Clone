@@ -1,5 +1,5 @@
 import React from 'react';
-import loginPic from '#assets/loginPic.jpg';
+import loginPic from 'assets/loginPic.jpg';
 import {FaHome, FaCarSide, FaCouch, FaBriefcase, FaPlane, FaBicycle, FaShip, FaShuttleVan,FaPiggyBank,FaHeart,FaHandshake} from 'react-icons/fa';
 
 const Choice = () => {
@@ -13,14 +13,14 @@ const Choice = () => {
     logInBody: "bg-blue-50 rounded-md shadow-sm py-8 px-10 w-full h-full flex flex-col justify-evenly items-center",
     loginTitle: "text-md font-semibold",
     loginSubtitle: "text-md text-center",
-    button: "bg-blue-600 text-center font-semibold w-full px-2 py-3 rounded-lg mt-3  text-white",
+    button: "bg-blue-600 hover:bg-blue-800 text-center font-semibold w-full px-2 py-3 rounded-lg mt-3  text-white",
     loginFootnote: "text-sm text-center mt-1",
     schibsted: "text-xs text-blue-600 mt-2"
   }
  
   return (
-    <div className={styles.main}>
-      <div className={styles.optionsList}>
+    <div data-cy="Choice" className={styles.main}>
+      <div data-cy="Options" className={styles.optionsList}>
         <div className={styles.option}><FaHome className={styles.icon}/><p className={styles.iconText}>Eindom</p> </div>
         <div className={styles.option}><FaCarSide className={styles.icon}/><p className={styles.iconText}>Bil og Naering</p> </div>
         <div className={styles.option}><FaCouch className={styles.icon}/><p className={styles.iconText}>Torget</p> </div>
@@ -35,14 +35,14 @@ const Choice = () => {
         <div className={styles.option}><FaHandshake className="w-full text-yellow-500"/><p className={styles.iconText}>Nettbil</p> </div>
       </div>
   
-      <div className={styles.logInAd}>
+      <div data-cy="adContainer" className={styles.logInAd}>
         <div className={styles.logInBody}>
-          <img src={loginPic} className="w-40" />
+          <img src={loginPic} className="w-40" alt="login" />
           <p className={styles.loginTitle}>Få mer ut av FINN</p>
           <p className={styles.loginSubtitle}>Få varsler, send meldinger, legg til favoritter eller lagre søkene dine.</p>
           <button className={styles.button}>Logg inn</button>
           <p className={styles.loginFootnote}>FINN.no er en del av Schibsted. Schibsted er ansvarlig for dine data på denne siden.</p>
-          <a href="#" className={styles.schibsted}>Les mer om personvern hos Schibsted</a>
+          <p  className={styles.schibsted}>Les mer om personvern hos Schibsted</p>
         </div>
       </div>
     </div>

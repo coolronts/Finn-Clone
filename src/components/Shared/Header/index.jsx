@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
-import logo from '#assets/logo.png';
+import logo from 'assets/logo.png';
 import { FaRegBell, FaPlus, FaRocketchat, FaRegUser } from 'react-icons/fa';
 
 const Header = () => {
@@ -16,13 +16,13 @@ const Header = () => {
     underlay: "absolute top-0 left-0 h-full w-screen bg-blue-900 opacity-40"
   }
   return (
-    <div className="relative">
+    <div data-cy="Header" className="relative">
       <div className={styles.underlay}/>
       <nav className={styles.nav} >
         <BrowserRouter forceRefresh={true}>
           <Link to={"/"}>
             <div className={styles.logoContainer}>
-              <img className={styles.logo} src={logo} />
+              <img className={styles.logo} src={logo} alt="logo" />
               <div className={styles.logoName}>Mulighetenes marked</div>
             </div>
           </Link>
