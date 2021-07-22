@@ -16,7 +16,7 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
-It will start Cypress Open Unit testing
+It will start Cypress Open testing
 
 ### `npm run build`
 
